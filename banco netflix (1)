@@ -1,35 +1,21 @@
-create database series_tv;
-use series_tv;
+create database netflix;
+use netflix;
 
 create table serie(
-	codigo int AUTO_INCREMENT PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	titulo varchar(100) not null,
 	imagem varchar(100) not null,
 	ano int not null,
-	sinopse varchar(1000) not null,
-	disponivel char not null,
+	sinopse text not null,
+	disponivel varchar(3) not null,
 	quant_temporadas int not null
 );
 
-create table usuario(
-	id_usuario int AUTO_INCREMENT PRIMARY KEY,
-	email varchar(50) unique,
-	nome varchar(100) not null,
-	senha varchar(10) not null,
-	nivel char not null
-);
-
 create table comentario(
-	id_comentario int AUTO_INCREMENT PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(50) not null,
 	titulo varchar(100) not null,
-	conteudo varchar(300) not null,
-	curtir boolean not null,
-	data timestamp not null,
-	id_usuario int not null,
-	FOREIGN KEY (id_usuario) references usuario(id_usuario)
-	id_serie int not null,
-	FOREIGN KEY (id_serie) references serie(codigo)
-
+	conteudo text not null,
+	curtir varchar not null,
+	data timestamp not null
 );
-
-
